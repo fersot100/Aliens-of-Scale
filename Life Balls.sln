@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Life Balls.CSharp.Plugins", "Life Balls.CSharp.Plugins.csproj", "{44EE468C-0ABB-6983-8526-12414BE8DEDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Life Balls.CSharp", "Life Balls.CSharp.csproj", "{E10A68C2-8C58-37B3-2A08-55295E2ED8A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Life Balls.CSharp.Editor", "Life Balls.CSharp.Editor.csproj", "{D6A9A3FE-4771-B701-40B2-A3D5FD716DBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44EE468C-0ABB-6983-8526-12414BE8DEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44EE468C-0ABB-6983-8526-12414BE8DEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44EE468C-0ABB-6983-8526-12414BE8DEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44EE468C-0ABB-6983-8526-12414BE8DEDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E10A68C2-8C58-37B3-2A08-55295E2ED8A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10A68C2-8C58-37B3-2A08-55295E2ED8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10A68C2-8C58-37B3-2A08-55295E2ED8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10A68C2-8C58-37B3-2A08-55295E2ED8A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A9A3FE-4771-B701-40B2-A3D5FD716DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A9A3FE-4771-B701-40B2-A3D5FD716DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A9A3FE-4771-B701-40B2-A3D5FD716DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A9A3FE-4771-B701-40B2-A3D5FD716DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
