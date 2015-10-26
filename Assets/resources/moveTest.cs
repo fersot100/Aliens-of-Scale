@@ -9,9 +9,6 @@ public class moveTest : MonoBehaviour {
     public float speed;
     private Vector3 mousePosition, myForward, myRight;
     private int cellHealth = 100;
-    
-   
-
 
     // Use this for initialization
     void Start () {
