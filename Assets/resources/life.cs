@@ -67,8 +67,8 @@ public class life : MonoBehaviour {
             Destroy(this.gameObject);
             
         }
-     //   Debug.Log(virusColliding);
-        Debug.Log("colortime: " + colortime);
+     
+       
 
 
     }

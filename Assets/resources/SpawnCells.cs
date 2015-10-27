@@ -11,7 +11,7 @@ public class SpawnCells : MonoBehaviour {
     private List<float> spawnLoc, xy;
     private float xlim, ylim, sizeCells1, sizeCells2, sizeCells3;
     private int cellType, tcType, i=0; 
-    private bool spawningDone = false;
+ 
    
 
 	// Use this for initialization
