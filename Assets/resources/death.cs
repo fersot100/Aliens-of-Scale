@@ -6,7 +6,7 @@ public class death : MonoBehaviour {
     public GameObject tcell;
     private int patrolDir;
     private float upForce = 5, rightForce = 5, currentx, markPos;
-    public float pursuitSpd = 20;
+    public float pursuitSpd = 40;
     private Vector3  currentPos, virusPos;
     private bool pursuitMode = false;
 
@@ -88,14 +88,6 @@ public class death : MonoBehaviour {
     void OnTriggerExit2d(Collider2D coll)
     {
         pursuitMode = false;
-    }
-
-    void OncolliderEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag == "Virus")
-        {
-            Destroy(coll.gameObject);
-        }
     }
      
 }

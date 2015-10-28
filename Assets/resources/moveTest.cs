@@ -4,16 +4,17 @@ using System.Collections;
 
 public class moveTest : MonoBehaviour {
     public GameObject virus, healthyCells;
-    private GameObject virusHold;
     public Rigidbody2D virus_physics, healthyCells_physics;
     public float speed;
     private Vector3 mousePosition, myForward, myRight;
- 
+    public static bool playerIsAlive = true;
+    
+
+    Animator player_death;
 
     // Use this for initialization
     void Start () {
-        virusHold = virus;
-
+       
     }
 	
 	// Update is called once per frame
@@ -23,7 +24,7 @@ public class moveTest : MonoBehaviour {
         stdMvmnt();
 
     }
-
+    
     void stdMvmnt()
     {
         virus_physics.AddTorque(Random.Range(-10.0F, 10.0F));
@@ -35,12 +36,18 @@ public class moveTest : MonoBehaviour {
 
 		if(col.gameObject.tag == "tcell")
 		{
-			Destroy(virus);
-			Debug.Log("FUCK IM DEAD");
-		}
 
-       
+            Destroy(this.virus, 1.0f);
+            Debug.Log("FUCK IM DEAD");
+		}
+ 
     }    
+
+    void Debug_Tools()
+    {
+
+
+    }
 
 
 
