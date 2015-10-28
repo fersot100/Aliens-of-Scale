@@ -3,6 +3,7 @@ using System.Collections;
 
 public class life : MonoBehaviour {
 
+	public AsyncOperation asyc;
     public float cellStrength;
     public static float VirusNumb = 0;
     float virusColliding = 0, virusAttack, colortime = 0;
@@ -31,6 +32,12 @@ public class life : MonoBehaviour {
         }
         //sets cell to selected color
         GetComponent<SpriteRenderer>().color = colorPick;
+        
+        
+        
+        
+		asyc = Application.LoadLevelAsync("GameOver");
+		asyc.allowSceneActivation = false;
 
     }
 	
@@ -68,12 +75,12 @@ public class life : MonoBehaviour {
             
         }
      
-     /*  if(VirusNumb < 2)
+       if(VirusNumb < 2)
        {
-       		Application.UnloadLevel("Game");
-       		Application.LoadLevel("Game");
+       		
+       		GameOver();
        }
-	*/
+	
 
     }
 
@@ -98,4 +105,9 @@ public class life : MonoBehaviour {
         virusColliding--;
         
     }
+    
+    
+	public void GameOver(){
+		asyc.allowSceneActivation = true; 
+	}
 }

@@ -3,7 +3,17 @@ using System.Collections;
 
 public class levelManager : MonoBehaviour {
 
+
+	public AsyncOperation asyc;
+	public bool levelSwitch = false;
+	
 	// Use this for initialization
+	
+	void Start()
+	{
+		
+	}
+	
 	public void begin () {
         Application.LoadLevel("Start");
 	}
@@ -17,4 +27,7 @@ public class levelManager : MonoBehaviour {
         Application.Quit();
 
     }
+    
+  
+    
 }

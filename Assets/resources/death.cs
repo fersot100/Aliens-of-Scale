@@ -103,5 +103,7 @@ public class death : MonoBehaviour {
         if (coll.gameObject.tag == "Virus")
             pursuitMode = true;
     }
+    
+
      
 }

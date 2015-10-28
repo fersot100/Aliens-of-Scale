@@ -63,15 +63,22 @@ public class lead : MonoBehaviour {
         
         
         
-		if(Input.touchCount > 0 )
+		if(Input.touchCount > 0)
 		{
-			Vector2 touchPos = Input.touches[0].position;
-			
-			Vector3 touchPosinWorldSpace = main.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, main.nearClipPlane));
-			
-			Debug.Log(touchPos + "touchPos");
-			
-			transform.position = Vector3.Lerp(transform.position, touchPosinWorldSpace, 1);
+			if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary)
+			{
+				Vector2 touchPos = Input.touches[0].position;
+				
+				Vector3 touchPosinWorldSpace = main.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, main.nearClipPlane));
+				
+				Debug.Log(touchPos + "touchPos");
+				
+				transform.position = Vector3.MoveTowards(transform.position, touchPosinWorldSpace, 1);
+			}
+			if(Input.touchCount == 2)
+			{
+					lerpspeed = lerpHold + 1;
+			}
 		
 		}
 		
