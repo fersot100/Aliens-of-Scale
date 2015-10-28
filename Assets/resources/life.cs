@@ -68,8 +68,12 @@ public class life : MonoBehaviour {
             
         }
      
-       
-
+     /*  if(VirusNumb < 2)
+       {
+       		Application.UnloadLevel("Game");
+       		Application.LoadLevel("Game");
+       }
+	*/
 
     }
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class lead : MonoBehaviour {
@@ -22,8 +22,14 @@ public class lead : MonoBehaviour {
         key_movement();
         //instantiates an array of all virus objects
         
-
-    }
+		if(Input.GetKey(KeyCode.Space))
+		{
+			lerpspeed = lerpHold + 1;
+		}else
+		{
+			lerpspeed = lerpHold;
+		}
+	}
 
     public void FixedUpdate()
     {
@@ -42,7 +48,7 @@ public class lead : MonoBehaviour {
 
     void key_movement()
     {
-
+		
             if (Input.GetKey(KeyCode.RightArrow))
                 player.AddForce(transform.right * speed);
 
@@ -54,6 +60,21 @@ public class lead : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.DownArrow))
                 player.AddForce(-transform.up * speed);
+        
+        
+        
+		if(Input.touchCount > 0 )
+		{
+			Vector2 touchPos = Input.touches[0].position;
+			
+			Vector3 touchPosinWorldSpace = main.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, main.nearClipPlane));
+			
+			Debug.Log(touchPos + "touchPos");
+			
+			transform.position = Vector3.Lerp(transform.position, touchPosinWorldSpace, 1);
+		
+		}
+		
         
     }
  
