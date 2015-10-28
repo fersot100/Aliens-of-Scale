@@ -14,38 +14,31 @@
      }
      
      void Update () {
-
-        float scroll = life.VirusNumb;
-         if (scroll == 1) {
+        float vcount = life.VirusNumb;
+         if (vcount == 1) 
             targetOrtho = 40;
-            // targetOrtho = Mathf.Clamp (targetOrtho, minOrtho, maxOrtho);
-         }
-        if (scroll > 2 && scroll < 6)
-        {
-            targetOrtho = 50;
-           // targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
-        }
-        if (scroll > 5 && scroll < 14)
-        {
-            targetOrtho = 60;
-            //targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
-        }
-        if (scroll > 13 && scroll < 18)
-        {
-            targetOrtho = 70;
-           // targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
-        }
-        if (scroll > 17 && scroll < 21)
-        {
-            targetOrtho = 80;
-           // targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
-        }
-        if (scroll > 20)
-        {
-            targetOrtho = 90;
-            //targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
-        }
+         
+        if (vcount > 2 && vcount < 6) targetOrtho = 50;
 
+
+
+        if (vcount > 5 && vcount < 14) targetOrtho = 60;
+
+
+
+        if (vcount > 13 && vcount < 18) targetOrtho = 70;
+
+
+
+        if (vcount > 17 && vcount < 21) targetOrtho = 80;
+
+
+
+        if (vcount > 20 && vcount < 26) targetOrtho = 90;
+
+
+
+        if (vcount > 25) targetOrtho = 110;
 
         Camera.main.orthographicSize = Mathf.MoveTowards 
             (Camera.main.orthographicSize, targetOrtho, smoothSpeed * Time.deltaTime);

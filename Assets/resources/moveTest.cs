@@ -8,6 +8,7 @@ public class moveTest : MonoBehaviour {
     public float speed;
     private Vector3 mousePosition, myForward, myRight;
     public static bool playerIsAlive = true;
+    public static Vector3 virusPos;
     
 
     Animator player_death;
@@ -21,8 +22,7 @@ public class moveTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        //virus_containermov();
+        virusPos = virus.transform.position;
         stdMvmnt();
 
     }

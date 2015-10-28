@@ -7,8 +7,10 @@ public class death : MonoBehaviour {
     private int patrolDir;
     private float upForce = 5, rightForce = 5, currentx, markPos;
     public float pursuitSpd = 40;
-    private Vector3  currentPos, virusPos;
+    private Vector3 currentPos, targetPos;
     private bool pursuitMode = false;
+    
+    
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +19,14 @@ public class death : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-   
+        
         if (pursuitMode == true)
             pursuit();
         else
             patrol();
 
         Debug.Log("pursuit Mode " + pursuitMode);
+        
     }
 
     void patrol()
@@ -62,16 +65,22 @@ public class death : MonoBehaviour {
             cond++;
 
         } while (cond < 1000);
-
-
     }
 
     void pursuit()
     {
-        float y = virusPos.y - currentPos.y;
-        float x = virusPos.x - currentPos.x;
-        rb.AddForce(-transform.up * y * pursuitSpd);
-        rb.AddForce(-transform.right * x * pursuitSpd);
+        targetPos = moveTest.virusPos;
+        float y = targetPos.y - currentPos.y;
+        float x = targetPos.x - currentPos.x;
+        float step = pursuitSpd * Time.deltaTime;
+        transform.position = 
+            Vector3.MoveTowards(transform.position, 
+            targetPos, 
+            step);
+
+        Debug.Log("x = " + x);
+        Debug.Log("y = " + y);
+
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -79,15 +88,20 @@ public class death : MonoBehaviour {
         if (coll.gameObject.tag == "Virus")
         {
             pursuitMode = true;
-            virusPos = coll.transform.position;
+            targetPos = coll.transform.position;
         }
-        else
-            pursuitMode = false;
     }
 
     void OnTriggerExit2d(Collider2D coll)
     {
-        pursuitMode = false;
+        if (coll.gameObject.tag == "Virus")
+            pursuitMode = false;
+    }
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Virus")
+            pursuitMode = true;
     }
      
 }
