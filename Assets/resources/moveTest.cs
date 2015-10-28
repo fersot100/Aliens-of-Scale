@@ -11,10 +11,12 @@ public class moveTest : MonoBehaviour {
     
 
     Animator player_death;
+	public int dieHash = Animator.StringToHash("die");
 
     // Use this for initialization
     void Start () {
-       
+		player_death = GetComponent<Animator>();
+
     }
 	
 	// Update is called once per frame
@@ -33,10 +35,10 @@ public class moveTest : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
 
     {
-
+		AnimatorStateInfo stateinfo = player_death.GetCurrentAnimatorStateInfo(0);
 		if(col.gameObject.tag == "tcell")
 		{
-
+			player_death.SetTrigger(dieHash);
             Destroy(this.virus, 1.0f);
             Debug.Log("FUCK IM DEAD");
 		}
