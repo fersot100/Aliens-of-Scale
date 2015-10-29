@@ -75,7 +75,7 @@ public class life : MonoBehaviour {
             
         }
      
-       if(VirusNumb < 2)
+       if(VirusNumb < 1)
        {
        		
        		GameOver();

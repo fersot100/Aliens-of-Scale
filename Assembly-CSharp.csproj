@@ -49,6 +49,7 @@
      <Compile Include="Assets\resources\SpawnCells.cs" />
      <Compile Include="Assets\resources\death.cs" />
      <Compile Include="Assets\resources\lead.cs" />
+     <Compile Include="Assets\resources\levelBounds.cs" />
      <Compile Include="Assets\resources\levelManager.cs" />
      <Compile Include="Assets\resources\life.cs" />
      <Compile Include="Assets\resources\moveTest.cs" />

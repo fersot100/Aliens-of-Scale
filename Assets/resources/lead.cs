@@ -3,12 +3,13 @@ using System.Collections;
 
 public class lead : MonoBehaviour {
 
-    public GameObject leader;
+    public GameObject leader, cameraFollow;
     public Rigidbody2D player;
     public float speed, lerpspeed;
     public Camera main;
     private GameObject[] virus;
     private float lerpHold, vnumber;
+	public bool inLevel = true;
 
 	void Start()
 	{
@@ -29,6 +30,8 @@ public class lead : MonoBehaviour {
 		{
 			lerpspeed = lerpHold;
 		}
+		
+		Debug.Log("in level"+inLevel);
 	}
 
     public void FixedUpdate()
@@ -40,9 +43,16 @@ public class lead : MonoBehaviour {
 
 		Debug.Log ("the virus length is -------->");
 
-        foreach (GameObject obj in virus)
-            obj.transform.position = Vector2.MoveTowards(obj.transform.position,
-                leader.transform.position, lerpspeed);
+		if(inLevel)
+		{
+			
+			foreach (GameObject obj in virus)
+				obj.transform.position = Vector2.MoveTowards(obj.transform.position,
+				leader.transform.position, lerpspeed);
+			
+		}
+		cameraFollow.transform.position = Vector2.MoveTowards(cameraFollow.transform.position,
+		                                             leader.transform.position, lerpspeed);
     }
 
 
@@ -71,7 +81,7 @@ public class lead : MonoBehaviour {
 				
 				Vector3 touchPosinWorldSpace = main.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, main.nearClipPlane));
 				
-				Debug.Log(touchPos + "touchPos");
+				
 				
 				transform.position = Vector3.MoveTowards(transform.position, touchPosinWorldSpace, 1);
 			}

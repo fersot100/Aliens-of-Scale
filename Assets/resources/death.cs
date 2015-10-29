@@ -78,8 +78,8 @@ public class death : MonoBehaviour {
             targetPos, 
             step);
 
-        Debug.Log("x = " + x);
-        Debug.Log("y = " + y);
+       // Debug.Log("x = " + x);
+        //Debug.Log("y = " + y);
 
     }
 
