@@ -9,6 +9,7 @@ public class lead : MonoBehaviour {
     public Camera main;
     private GameObject[] virus;
     private float lerpHold, vnumber;
+    public bool inLevel = true;
 
 	void Start()
 	{
@@ -40,9 +41,14 @@ public class lead : MonoBehaviour {
 
 		Debug.Log ("the virus length is -------->");
 
+	if(inLevel)
+		{
+		
         foreach (GameObject obj in virus)
             obj.transform.position = Vector2.MoveTowards(obj.transform.position,
                 leader.transform.position, lerpspeed);
+                
+        }
     }
 
 

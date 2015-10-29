@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\resources\CameraZoom.cs" />
+     <Compile Include="Assets\resources\LevelBounds.cs" />
      <Compile Include="Assets\resources\SpawnCells.cs" />
      <Compile Include="Assets\resources\death.cs" />
      <Compile Include="Assets\resources\lead.cs" />
