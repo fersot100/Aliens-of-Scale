@@ -12,6 +12,7 @@ public class life : MonoBehaviour {
     public int colorChoice, virusMin, virusMax;
     private Color colorPick;
     GameObject[] virus;
+    float highScore, score = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -32,9 +33,6 @@ public class life : MonoBehaviour {
         }
         //sets cell to selected color
         GetComponent<SpriteRenderer>().color = colorPick;
-        
-        
-        
         
 		asyc = Application.LoadLevelAsync("GameOver");
 		asyc.allowSceneActivation = false;
@@ -70,19 +68,32 @@ public class life : MonoBehaviour {
                 Instantiate(virusHold, this.transform.position, Quaternion.identity);
 
             }
-
+            
             Destroy(this.gameObject);
+
             
         }
      
+<<<<<<< HEAD
+       if(VirusNumb == 1)
+=======
        if(VirusNumb < 1)
+>>>>>>> origin/master
        {
        		
        		GameOver();
        }
+
+        score = VirusNumb - 1;
+
+        if (score > highScore) highScore = score;      
 	
 
     }
+
+
+
+
 
     //adds value to damage amount
     void OnCollisionEnter2D(Collision2D collision)
@@ -110,4 +121,12 @@ public class life : MonoBehaviour {
 	public void GameOver(){
 		asyc.allowSceneActivation = true; 
 	}
+
+    void OnGUI()
+    {
+        GUI.Box(new Rect(0, 0, Screen.width/10, Screen.height/10), score.ToString());
+    }
+
+
+
 }
