@@ -74,14 +74,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\resources\CameraZoom.cs" />
-    <Compile Include="Assets\resources\SpawnCells.cs" />
-    <Compile Include="Assets\resources\death.cs" />
-    <Compile Include="Assets\resources\lead.cs" />
-    <Compile Include="Assets\resources\levelBounds.cs" />
-    <Compile Include="Assets\resources\levelManager.cs" />
-    <Compile Include="Assets\resources\life.cs" />
-    <Compile Include="Assets\resources\moveTest.cs" />
+    <Compile Include="Assets\resources\scripts\CameraZoom.cs" />
+    <Compile Include="Assets\resources\scripts\SpawnCells.cs" />
+    <Compile Include="Assets\resources\scripts\Virus.cs" />
+    <Compile Include="Assets\resources\scripts\death.cs" />
+    <Compile Include="Assets\resources\scripts\lead.cs" />
+    <Compile Include="Assets\resources\scripts\levelBounds.cs" />
+    <Compile Include="Assets\resources\scripts\levelManager.cs" />
+    <Compile Include="Assets\resources\scripts\life.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

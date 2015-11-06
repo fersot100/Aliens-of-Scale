@@ -5,9 +5,9 @@ public class lead : MonoBehaviour {
 
     public GameObject leader, cameraFollow;
     public Rigidbody2D player;
-    public float speed, lerpspeed;
+    public float speed, lerpspeed, touchSpeed;
     public Camera main;
-    private GameObject[] virus;
+    public GameObject[] virus;
     private float lerpHold, vnumber;
 	public bool inLevel = true;
 
@@ -77,10 +77,11 @@ public class lead : MonoBehaviour {
 				Vector2 touchPos = Input.touches[0].position;
 				
 				Vector3 touchPosinWorldSpace = main.ScreenToWorldPoint(new Vector3(touchPos.x, touchPos.y, main.nearClipPlane));
-				
-				
-				
-				transform.position = Vector3.MoveTowards(transform.position, touchPosinWorldSpace, 1);
+
+
+                //creates a force vector between lead object and finger touch
+                gameObject.GetComponent<Rigidbody2D>().AddForce( new Vector2((touchPosinWorldSpace.x - transform.position.x) * Time.deltaTime * touchSpeed,
+                                                                (touchPosinWorldSpace.y - transform.position.y) * Time.deltaTime * touchSpeed), ForceMode2D.Impulse);
 			}
 			if(Input.touchCount == 2)
 			{

@@ -69,7 +69,7 @@ public class death : MonoBehaviour {
 
     void pursuit()
     {
-        targetPos = moveTest.virusPos;
+        targetPos = Virus.virusPos;
         float y = targetPos.y - currentPos.y;
         float x = targetPos.x - currentPos.x;
         float step = pursuitSpd * Time.deltaTime;

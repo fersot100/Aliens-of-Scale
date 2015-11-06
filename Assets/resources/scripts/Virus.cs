@@ -2,9 +2,9 @@
 using System.Collections;
 
 
-public class moveTest : MonoBehaviour {
+public class Virus : MonoBehaviour {
     public GameObject virus, healthyCells;
-    public Rigidbody2D virus_physics, healthyCells_physics;
+    public Rigidbody2D virus_physics;
     public float speed;
     private Vector3 mousePosition, myForward, myRight;
     public static bool playerIsAlive = true;
