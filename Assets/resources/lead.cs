@@ -43,16 +43,13 @@ public class lead : MonoBehaviour {
 
 		Debug.Log ("the virus length is -------->");
 
-		if(inLevel)
-		{
-			
-			foreach (GameObject obj in virus)
-				obj.transform.position = Vector2.MoveTowards(obj.transform.position,
-				leader.transform.position, lerpspeed);
-			
-		}
-		cameraFollow.transform.position = Vector2.MoveTowards(cameraFollow.transform.position,
-		                                             leader.transform.position, lerpspeed);
+        foreach (GameObject obj in virus)
+        {
+             obj.transform.position = Vector2.MoveTowards(obj.transform.position,
+            leader.transform.position, lerpspeed);
+
+          //obj.GetComponent<Rigidbody2D>().AddForce((transform.position - obj.transform.position) * lerpspeed);
+    	}
     }
 
 

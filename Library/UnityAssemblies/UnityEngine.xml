@@ -9358,6 +9358,11 @@ Sometimes it is not possible to project (for example when the joints form a cycl
         <para>Forward facing side (+z).</para>
       </summary>
     </member>
+    <member name="F:UnityEngine.CubemapFace.Unknown">
+      <summary>
+        <para>Cubemap face is unknown or unspecified.</para>
+      </summary>
+    </member>
     <member name="T:UnityEngine.CullingGroup">
       <summary>
         <para>Describes a set of bounding spheres that should have their visibility and distances maintained.</para>
@@ -20386,6 +20391,51 @@ GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHe
       <summary>
         <para>Notification is an alert sound.</para>
       </summary>
+    </member>
+    <member name="T:UnityEngine.iOS.OnDemandResources">
+      <summary>
+        <para>On Demand Resources API.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.iOS.OnDemandResources.enabled">
+      <summary>
+        <para>Indicates whether player was built with "Use On Demand Resources" player setting enabled.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.iOS.OnDemandResources.PreloadAsync(System.String[])">
+      <summary>
+        <para>Creates an On Demand Resources (ODR) request.</para>
+      </summary>
+      <param name="tags">Tags for On Demand Resources that should be included in the request.</param>
+      <returns>
+        <para>Object representing ODR request.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.iOS.OnDemandResourcesRequest">
+      <summary>
+        <para>Represents a request for On Demand Resources (ODR). It's an [[AsyncOperation]] and can be yielded in a coroutine.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.iOS.OnDemandResourcesRequest.error">
+      <summary>
+        <para>Returns an error after operation is complete.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.iOS.OnDemandResourcesRequest.loadingPriority">
+      <summary>
+        <para>Sets the priority for request.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.iOS.OnDemandResourcesRequest.Dispose">
+      <summary>
+        <para>Release all resources kept alive by On Demand Resources (ODR) request.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.iOS.OnDemandResourcesRequest.GetResourcePath(System.String)">
+      <summary>
+        <para>Gets file system's path to the resource available in On Demand Resources (ODR) request.</para>
+      </summary>
+      <param name="resourceName">Resource name.</param>
     </member>
     <member name="T:UnityEngine.iOS.RemoteNotification">
       <summary>
@@ -33522,6 +33572,30 @@ SA: [[ReflectionProbeTimeSlicingMode]].</para>
       <param name="color">Render target to set as a color buffer.</param>
       <param name="colors">Render targets to set as color buffers (MRT).</param>
       <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
+    </member>
+    <member name="M:UnityEngine.Rendering.CommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,System.Int32)">
+      <summary>
+        <para>Add a "set active render target" command.</para>
+      </summary>
+      <param name="rt">Render target to set for both color &amp; depth buffers.</param>
+      <param name="color">Render target to set as a color buffer.</param>
+      <param name="colors">Render targets to set as color buffers (MRT).</param>
+      <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
+    </member>
+    <member name="M:UnityEngine.Rendering.CommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace)">
+      <summary>
+        <para>Add a "set active render target" command.</para>
+      </summary>
+      <param name="rt">Render target to set for both color &amp; depth buffers.</param>
+      <param name="color">Render target to set as a color buffer.</param>
+      <param name="colors">Render targets to set as color buffers (MRT).</param>
+      <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
     </member>
     <member name="M:UnityEngine.Rendering.CommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier)">
       <summary>
@@ -33531,6 +33605,30 @@ SA: [[ReflectionProbeTimeSlicingMode]].</para>
       <param name="color">Render target to set as a color buffer.</param>
       <param name="colors">Render targets to set as color buffers (MRT).</param>
       <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
+    </member>
+    <member name="M:UnityEngine.Rendering.CommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Int32)">
+      <summary>
+        <para>Add a "set active render target" command.</para>
+      </summary>
+      <param name="rt">Render target to set for both color &amp; depth buffers.</param>
+      <param name="color">Render target to set as a color buffer.</param>
+      <param name="colors">Render targets to set as color buffers (MRT).</param>
+      <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
+    </member>
+    <member name="M:UnityEngine.Rendering.CommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace)">
+      <summary>
+        <para>Add a "set active render target" command.</para>
+      </summary>
+      <param name="rt">Render target to set for both color &amp; depth buffers.</param>
+      <param name="color">Render target to set as a color buffer.</param>
+      <param name="colors">Render targets to set as color buffers (MRT).</param>
+      <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
     </member>
     <member name="M:UnityEngine.Rendering.CommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier)">
       <summary>
@@ -33540,6 +33638,8 @@ SA: [[ReflectionProbeTimeSlicingMode]].</para>
       <param name="color">Render target to set as a color buffer.</param>
       <param name="colors">Render targets to set as color buffers (MRT).</param>
       <param name="depth">Render target to set as a depth buffer.</param>
+      <param name="mipLevel">The mip level of the render target to render into.</param>
+      <param name="cubemapFace">The cubemap face of a cubemap render target to render into.</param>
     </member>
     <member name="T:UnityEngine.Rendering.CompareFunction">
       <summary>
@@ -39895,6 +39995,16 @@ Developing, Development, Invalid, Operating.</para>
     <member name="P:UnityEngine.Time.unscaledTime">
       <summary>
         <para>The timeScale-independant time at the beginning of this frame (RO). This is the time in seconds since the start of the game.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Tizen.Window">
+      <summary>
+        <para>Interface for Tizen specific functionality.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Tizen.Window.windowHandle">
+      <summary>
+        <para>Get pointer to the native window handle.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.TooltipAttribute">

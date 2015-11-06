@@ -71,19 +71,19 @@ public class life : MonoBehaviour {
             
             Destroy(this.gameObject);
 
-            
+          
         }
-     
-<<<<<<< HEAD
-       if(VirusNumb == 1)
-=======
-       if(VirusNumb < 1)
->>>>>>> origin/master
-       {
-       		
-       		GameOver();
-       }
+            
 
+              if(VirusNumb == 0)
+                     GameOver();
+              if(VirusNumb < 1)
+
+              {
+
+                   GameOver();
+              }
+       
         score = VirusNumb - 1;
 
         if (score > highScore) highScore = score;      
