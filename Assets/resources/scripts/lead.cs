@@ -81,7 +81,7 @@ public class lead : MonoBehaviour {
 
                 //creates a force vector between lead object and finger touch
                 gameObject.GetComponent<Rigidbody2D>().AddForce( new Vector2((touchPosinWorldSpace.x - transform.position.x) * Time.deltaTime * touchSpeed,
-                                                                (touchPosinWorldSpace.y - transform.position.y) * Time.deltaTime * touchSpeed), ForceMode2D.Impulse);
+                                                                (touchPosinWorldSpace.y - transform.position.y) * Time.deltaTime * touchSpeed * 2), ForceMode2D.Impulse);
 			}
 			if(Input.touchCount == 2)
 			{
