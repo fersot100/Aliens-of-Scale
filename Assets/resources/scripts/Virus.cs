@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 
@@ -9,14 +10,21 @@ public class Virus : MonoBehaviour {
     private Vector3 mousePosition, myForward, myRight;
     public static bool playerIsAlive = true;
     public static Vector3 virusPos;
-    
+
+    public Text virusDisplay;
+    public Text sickness;
 
     Animator player_death;
 	public int dieHash = Animator.StringToHash("die");
 
+    public levelManager levelManager;
+    private bool CountGot = false;
+    private int CellCountHold;
+
     // Use this for initialization
     void Start () {
 		player_death = GetComponent<Animator>();
+
 
     }
 	
@@ -24,7 +32,7 @@ public class Virus : MonoBehaviour {
 	void Update () {
         virusPos = virus.transform.position;
         stdMvmnt();
-
+        Display();
     }
     
     void stdMvmnt()
@@ -45,10 +53,28 @@ public class Virus : MonoBehaviour {
  
     }    
 
-    void Debug_Tools()
+    void Display()
     {
+        virusDisplay.text = "Virus Count: " + life.VirusNumb;
 
+        int cellCount = GameObject.Find("cells").GetComponent<SpawnCells>().cellCount;
 
+        if(!CountGot)
+        {
+            CellCountHold = cellCount;
+            CountGot = true;
+        }
+
+       
+
+        sickness.text = "Healthy Cells: " + cellCount;
+        Debug.Log(CellCountHold + "Coutn Hold");
+
+        if(cellCount <= 5)
+        {
+            levelManager.game("level1");
+
+        }
     }
 
 

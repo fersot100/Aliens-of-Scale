@@ -19,8 +19,8 @@ public class levelManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public void game () {
-        Application.LoadLevel("Game");
+	public void game (string level) {
+        Application.LoadLevel(level);
     }
 
    public void quitGame() {

@@ -10,24 +10,29 @@ public class SpawnCells : MonoBehaviour {
     
     private List<float> spawnLoc, xy;
     private float xlim, ylim, sizeCells1, sizeCells2, sizeCells3;
-    private int cellType, tcType, i=0; 
- 
-   
+    private int cellType, tcType, i=0;
 
-	// Use this for initialization
-	void Start () {
+    int count = 4;
+    GameObject[] cellArr;
+    public int cellCount;
+
+
+
+    // Use this for initialization
+    void Start () {
         cellHold1 = cell1;
         cellHold2 = cell2;
         cellHold3 = cell3;
         tc = tcell;
         spawn_hc();
-        spawn_tc();
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
-	}
+        spawn_tc();
+        hcCellNumb();
+    }
 
     void random_spawn()
     {
@@ -79,17 +84,30 @@ public class SpawnCells : MonoBehaviour {
       
    void spawn_tc()
     {
-        for (int i = 0; i < 6; i++)
+        
+
+        while(life.VirusNumb >= count)
         {
             random_spawn();
             tc_container =  Instantiate(tc, new Vector3(xlim, ylim, 0),
                         Quaternion.identity) as GameObject;
 
-           
-        }
-            
+            count += 5;
 
-      }
+        }
+
+
+        Debug.Log("next tc: " + count);
+
+    }
+
+    void hcCellNumb()
+        {
+        cellArr = GameObject.FindGameObjectsWithTag("Healthy Cell");
+
+        cellCount = cellArr.Length;
+        Debug.Log(cellCount + "hcCellNumb of hc");
+    }
     
  
 

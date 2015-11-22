@@ -16,7 +16,7 @@
      void Update () {
         float vcount = life.VirusNumb;
          if (vcount == 1) 
-            targetOrtho = 40;
+            targetOrtho = 50;
          
         if (vcount > 2 && vcount < 6) targetOrtho = 50;
 

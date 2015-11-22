@@ -9,7 +9,7 @@ public class lead : MonoBehaviour {
     public Camera main;
     public GameObject[] virus;
     private float lerpHold, vnumber;
-	public bool inLevel = true;
+
 
 	void Start()
 	{
@@ -31,7 +31,7 @@ public class lead : MonoBehaviour {
 			lerpspeed = lerpHold;
 		}
 		
-		Debug.Log("in level"+inLevel);
+
 	}
 
     public void FixedUpdate()

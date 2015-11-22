@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class life : MonoBehaviour {
@@ -13,6 +14,8 @@ public class life : MonoBehaviour {
     private Color colorPick;
     GameObject[] virus;
     float highScore, score = 2;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -38,41 +41,17 @@ public class life : MonoBehaviour {
 		asyc.allowSceneActivation = false;
 
     }
+
+
 	
 	// Update is called once per frame
 	void Update () {
         //appends all viruses to this array
         virus = GameObject.FindGameObjectsWithTag("Virus");
         VirusNumb = virus.Length;
-        
+
         //if touching viruses inflict damage to cell based on number of viruses
-       if (virusColliding > 0)
-        {
-            //log of viruses to determine damage amount
-            virusAttack = (Mathf.Log(virusColliding) + 2);
-            //slow transition from color to black on cells
-            colortime += Time.deltaTime * (virusAttack/cellStrength);
-            GetComponent<SpriteRenderer>().color = 
-                Color.Lerp(colorPick, Color.black, colortime);
-        }
-        else
-        {
-            //stops damage if no viruses touching
-            virusColliding = 0;
-        }
-      //kills cells and instantiates new viruses
-        if(colortime >= 1)
-        {
-            for (int i = (Random.Range(virusMin, virusMax)); i > 0; i--)
-            {
-                Instantiate(virusHold, this.transform.position, Quaternion.identity);
-
-            }
-            
-            Destroy(this.gameObject);
-
-          
-        }
+        cellDamage();
             
 
               if(VirusNumb == 0)
@@ -122,11 +101,37 @@ public class life : MonoBehaviour {
 		asyc.allowSceneActivation = true; 
 	}
 
-    void OnGUI()
+
+
+    void cellDamage()
     {
-        GUI.Box(new Rect(0, 0, Screen.width/10, Screen.height/10), score.ToString());
+        if (virusColliding > 0)
+        {
+            //log of viruses to determine damage amount
+            virusAttack = (Mathf.Log(virusColliding) + 2);
+            //slow transition from color to black on cells
+            colortime += Time.deltaTime * (virusAttack / cellStrength);
+            GetComponent<SpriteRenderer>().color =
+                Color.Lerp(colorPick, Color.black, colortime);
+        }
+        else
+        {
+            //stops damage if no viruses touching
+            virusColliding = 0;
+        }
+        //kills cells and instantiates new viruses
+        if (colortime >= 1)
+        {
+            for (int i = (Random.Range(virusMin, virusMax)); i > 0; i--)
+            {
+                Instantiate(virusHold, this.transform.position, Quaternion.identity);
+
+            }
+
+            Destroy(this.gameObject);
+
+
+        }
     }
-
-
 
 }
