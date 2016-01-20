@@ -18,14 +18,14 @@ public class Virus : MonoBehaviour {
 	public int dieHash = Animator.StringToHash("die");
 
     public levelManager levelManager;
-    private bool CountGot = false;
+    private bool CountGot = false, started = false;
     private int CellCountHold;
 
     // Use this for initialization
     void Start () {
 		player_death = GetComponent<Animator>();
 
-
+        Invoke("begin", 2);
     }
 	
 	// Update is called once per frame
@@ -50,6 +50,8 @@ public class Virus : MonoBehaviour {
             Destroy(this.virus, 1.0f);
             Debug.Log("FUCK IM DEAD");
 		}
+
+   
  
     }    
 
@@ -70,13 +72,16 @@ public class Virus : MonoBehaviour {
         sickness.text = "Healthy Cells: " + cellCount;
         Debug.Log(CellCountHold + "Coutn Hold");
 
-        if(cellCount <= 5)
+        if(cellCount <= 5 && started)
         {
             levelManager.game("level1");
 
         }
     }
 
-
+    void begin()
+    {
+        started = true;
+    }
 
 }

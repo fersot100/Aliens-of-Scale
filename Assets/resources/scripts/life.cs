@@ -50,23 +50,24 @@ public class life : MonoBehaviour {
         virus = GameObject.FindGameObjectsWithTag("Virus");
         VirusNumb = virus.Length;
 
-        //if touching viruses inflict damage to cell based on number of viruses
-        cellDamage();
+
             
 
               if(VirusNumb == 0)
                      GameOver();
               if(VirusNumb < 1)
-
               {
-
                    GameOver();
               }
        
         score = VirusNumb - 1;
 
-        if (score > highScore) highScore = score;      
-	
+        if (score > highScore) highScore = score;
+
+
+        //if touching viruses inflict damage to cell based on number of viruses
+        cellDamage();
+
 
     }
 
